@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>            
+            {% block title %}{% endblock %}
+        </title>
+    </head>
+    <body>        
+        {% if messages %}
+            {% for message in messages %}
+                <div>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <div>
+            {% if user.is_authenticated %}
+                <h2> {{ user.user_name }}</h2>
+                <h4> <a href="{% url 'profile' %}"></a></h4>
+            {% endif %}
+            
+        </div>
+        {% block body %}{% endblock %}
+        <div>
+            {% if user.is_authenticated %}
+                <h4><a href="{% url 'logout' %}"></a></h4>
+            {% else %}
+                <h4><a href="{% url 'register' %}"></a></h4>
+                <h4><a href="{% url 'login' %}"></a></h4>
+            {% endif %}
+            <h4><a href="{% url 'Peperina-home' %}"></a></h4>
+            
+        </div>
+    </body>
+</html>

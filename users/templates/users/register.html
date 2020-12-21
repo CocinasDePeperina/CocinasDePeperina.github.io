@@ -1,0 +1,21 @@
+{% extends "reading/base.html" %}
+{% block title %}
+    Sing Up
+{% endblock %}
+
+{% block body %}
+    <h1> registration TO DO </h1>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                {{ rForm }}
+            </fieldset>
+            <div>
+                <button type="submit">
+                    Crear
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
